@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch</title>
+    <style>
+        #main{
+            width:500px;
+            height:200px;
+            /* border: 3px solid black; */
+            margin: auto;
+            display: flex;
+            margin-top: 250px;
+            background-color: rgb(107, 105, 105);
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        #main>div{
+            width:20%;
+            height:100px;
+            /* border: 3px solid black; */
+            margin: auto;
+            background-color: rgb(195, 185, 185);
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        #main>div>h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Made using SetInterval</h1>
+    <div id="main">
+        <div><h1 id="hr">0</h1></div>
+       <div> <h1 id="min">0</h1></div>
+        <div><h1 id="sec">0</h1></div>
+    </div>
+    
+</body>
+</html>
+<script>
+    let hour=document.getElementById("hr");
+    let minute=document.getElementById("min");
+    let second=document.getElementById("sec");
+    let H1=0;
+    let H2=0;
+    let H3=0;
+    setInterval(function(){
+        H3++;
+        if(H3===60){
+            H2++;
+            minute.innerText=H2;
+            H3=0;
+            if(H2===60){
+                H1++;
+                hour.innerText=H1;
+                H2=0;
+            }
+            hour.innerText=H1;
+        }
+        second.innerText=H3;
+        
+        
+    },1000)
+</script>
